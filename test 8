@@ -1,0 +1,48 @@
+from tkinter import *
+
+# Create a window
+the_window = Tk()
+# Give the window a title
+the_window.title('Change Colour')
+
+# PUT YOUR CODE HERE-------------------------------------------------#
+# create lable widget to display color
+w = Label(the_window, bg = 'grey', width = 40,
+          height = 4, relief = 'groove')
+w.grid(padx = 15, pady = 15, column = 0, columnspan = 12)
+
+#define a function changing color
+def change_color():
+    a = v.get()
+    if a == 1:
+        w['bg'] = 'red'
+    elif a == 2:
+        w['bg'] = 'yellow'
+    elif a == 3:
+        w['bg'] = 'green'
+    elif a == 4:
+        w['bg'] = 'blue'
+
+v = IntVar()# introduce a integer variable for radio buttons
+
+#create radio buttons and place them in GUI
+red_button = Radiobutton(the_window, text = 'Red', command = change_color,
+                         variable = v, value = 1, font = ('Arial', 10))
+red_button.grid(column = 5, row = 1, sticky = 'w')
+
+yellow_button = Radiobutton(the_window, text = 'Yellow', command = change_color,
+                            variable = v ,value = 2, font = ('Arial', 10))
+yellow_button.grid(column = 6, row = 1, sticky = 'w')
+
+green_button = Radiobutton(the_window, text = 'Green', command = change_color,
+                           variable = v, value = 3, font = ('Arial', 10))
+green_button.grid(column = 5, row = 2, sticky = 'w')
+
+blue_button = Radiobutton(the_window, text = 'Blue', command = change_color,
+                          variable = v, value = 4, font = ('Arial', 10))
+blue_button.grid(column = 6, row = 2, sticky = 'w')
+
+#----------------------------------------------------------------
+
+# Start the event loop to react to user inputs
+the_window.mainloop()
